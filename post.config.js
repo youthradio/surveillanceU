@@ -2,7 +2,7 @@
 import ArticleData from './data/data.json'
 const content = ArticleData.content[0]
 
-const BASEURL = process.env.BASE_URL_PRODUCTION || '/static-nuxt-template'
+const BASEURL = process.env.BASE_URL_PRODUCTION || '/surveillanceU'
 const CAN_URL =
   process.env.BASE_URL_PRODUCTION === ''
     ? `https://youthradio.github.io${BASEURL}`
@@ -14,17 +14,16 @@ console.log(`CAN_URL ${CAN_URL}`)
 const POSTCONFIG = {
   baseURL: BASEURL,
   title: content.headline,
+  subheadline: content.subheadline,
   author: content.author,
   publishDate: content.date,
   location: content.location,
   description: content.seo_description || '',
   tweetMessage: '@itsyrmedia',
   url: CAN_URL,
-  featureImage: `${CAN_URL}/social.jpg`,
-
-  featureImagePath: 'images/template-feature-image',
-  featureImageDescription: 'People Protesting BLM',
-  featureImageCaption: '(Photo: Andersen Ross Photography Inc/Getty Images)',
+  featureImage: `${CAN_URL}/${content.seo_image}`,
+  featureImagePath: content.featureImage,
+  featureImageDescription: content.featureImageDescription,
 
   wpPostSlug: 'north-carolina-vs-vaping-companies',
   wpPostID: '60986',
@@ -33,8 +32,8 @@ const POSTCONFIG = {
   twitterHandler: '@itsyrmedia',
   docs: [
     {
-      name: 'static new template',
-      id: '1imJ0esjaeeq_rxh5XFTs9VCpsREOuTshZU1GRCswxN0',
+      name: 'surveillanceU',
+      id: '1s0g1EpMZwVpCMEeXXi5DD7HZ_F_w8GU70iDPAzz1MUw',
     },
   ],
   dataPath: '../data/data.json',

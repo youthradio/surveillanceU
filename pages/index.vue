@@ -1,12 +1,15 @@
 <template>
-  <div>
-    <HeaderContainer />
+  <div class="menu-margin-top">
+    <header>
+      <MenuHeader />
+      <feature-header-center :header-data="headerData" />
+    </header>
     <main class="mw8 center">
       <article class="lh-copy">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris
-          vitae ultricies leo integer. Odio ut sem nulla pharetra. Mauris augue
+          vitae ultricies leo integer. Odio ut sem nulla pharetra. Mauris augu e
           neque gravida in fermentum et. Placerat duis ultricies lacus sed.
           Proin fermentum leo vel orci porta non pulvinar neque laoreet.
           Maecenas ultricies mi eget mauris. Malesuada fames ac turpis egestas
@@ -42,7 +45,6 @@
           penatibus. Urna neque viverra justo nec ultrices dui sapien. Sed id
           semper risus in hendrerit gravida rutrum.
         </p>
-        <MapContainer />
         <p>
           Arcu odio ut sem nulla pharetra diam sit amet. Non sodales neque
           sodales ut etiam sit amet nisl purus. Elementum nibh tellus molestie
@@ -69,6 +71,7 @@
         </p>
       </article>
       <ShareContainer
+        :vertical-mode="false"
         :title="postData.title"
         :description="postData.description"
         :tweet-message="postData.tweetMessage"
@@ -83,23 +86,32 @@
 import POSTCONFIG from '../post.config'
 import CommonUtils from '../mixins/CommonUtils'
 import ArticleData from '../data/data.json'
-import MapContainer from '~/components/Map/MapContainer'
-import HeaderContainer from '~/components/Header/HeaderContainer'
 import ShareContainer from '~/components/Custom/ShareContainer'
 import FooterContainer from '~/components/Footer/FooterContainer'
+import MenuHeader from '~/components/Header/MenuHeader'
+import FeatureHeaderCenter from '~/components_local/FeatureHeaderCenter'
 
 export default {
   components: {
-    MapContainer,
-    HeaderContainer,
     ShareContainer,
     FooterContainer,
+    MenuHeader,
+    FeatureHeaderCenter,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
     return {
       articleData: ArticleData.content[0],
       postData: POSTCONFIG,
+      headerData: {
+        featureImage: POSTCONFIG.featureImagePath,
+        title: POSTCONFIG.title,
+        subheadline: POSTCONFIG.subheadline,
+        author: POSTCONFIG.author,
+        imageCaption: POSTCONFIG.featureImageCaption,
+        publishDate: POSTCONFIG.publishDate,
+        location: POSTCONFIG.location,
+      },
     }
   },
   data() {
