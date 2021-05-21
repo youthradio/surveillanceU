@@ -19,9 +19,9 @@
         <h1 class="lh-title-1-1 daysans f1-ns f3 ma0 pa0 ttu">
           {{ headerData.title }}
         </h1>
-        <h3 class="lh-title-1-1 normal assistant f4-ns f6 ma0 pa0">
+        <h2 class="lh-title-1-1 normal assistant f3-ns f4 ma0 pa0">
           {{ headerData.subheadline }}
-        </h3>
+        </h2>
       </div>
     </div>
   </div>
