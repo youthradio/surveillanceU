@@ -20,7 +20,13 @@
         <template v-for="(story, i) in articleData.stories">
           <div :key="story.title">
             <div class="center flex-ns items-end justify-center">
-              <img class="db w-100 lazy" loading="lazy" :src="story.image" />
+              <img
+                width="550"
+                height="300"
+                class="db w-100 lazyload"
+                loading="lazy"
+                :data-src="story.image"
+              />
               <h2 class="purple f3 f2-ns ma0 ttu mw6-ns ph3-ns">
                 {{ romansMap[i] }}<br class="dn di-ns" />{{ story.title }}
               </h2>

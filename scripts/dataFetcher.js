@@ -31,7 +31,7 @@ marked.setOptions({
 
 const renderer = {
   link(href, title, text) {
-    return `<a target="_blank" rel="nofollow" href="${href}" class="link green underline underline-hover hover-dark-green">${text}</a>`
+    return `<a target="_blank" rel="nofollow" href="${href}" class="link purple underline underline-hover hover-dark-purple">${text}</a>`
   },
 }
 
@@ -72,6 +72,7 @@ function markdown2html(data) {
               'strong',
               'i',
               'li',
+              'blockquote',
               'ul',
             ],
             KEEP_CONTENT: true,
