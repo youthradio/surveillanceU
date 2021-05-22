@@ -4,6 +4,7 @@
       <MenuHeader />
       <feature-header-center :header-data="headerData" />
     </header>
+    <state-generator />
     <main class="mw8 ph3 center">
       <article class="lh-copy">
         <template v-for="section in articleData.intro">
@@ -28,7 +29,9 @@
                 :data-src="story.image"
               />
               <h2 class="purple f3 f2-ns ma0 ttu mw6-ns ph3-ns">
-                {{ romansMap[i] }}<br class="dn di-ns" />{{ story.title }}
+                {{ romansMap[i] }}
+                <br class="dn di-ns" />
+                {{ story.title }}
               </h2>
             </div>
             <div class="measure-wide center" v-html="story.text" />
@@ -56,6 +59,7 @@ import FooterContainer from '~/components/Footer/FooterContainer'
 import MenuHeader from '~/components/Header/MenuHeader'
 import FeatureHeaderCenter from '~/components_local/FeatureHeaderCenter'
 import AnchoredHeading from '~/components_local/AnchoredHeading'
+import StateGenerator from '~/components_local/StateGenerator'
 
 export default {
   components: {
@@ -64,6 +68,7 @@ export default {
     MenuHeader,
     FeatureHeaderCenter,
     AnchoredHeading,
+    StateGenerator,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {

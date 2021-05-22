@@ -2,7 +2,7 @@ export default {
   functional: true,
   props: {
     level: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
