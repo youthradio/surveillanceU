@@ -4,7 +4,7 @@
       <MenuHeader />
       <feature-header-center :header-data="headerData" />
     </header>
-    <state-generator />
+    <petitions-viewer />
     <main class="mw8 ph3 center">
       <article class="lh-copy">
         <template v-for="section in articleData.intro">
@@ -59,7 +59,7 @@ import FooterContainer from '~/components/Footer/FooterContainer'
 import MenuHeader from '~/components/Header/MenuHeader'
 import FeatureHeaderCenter from '~/components_local/FeatureHeaderCenter'
 import AnchoredHeading from '~/components_local/AnchoredHeading'
-import StateGenerator from '~/components_local/StateGenerator'
+import PetitionsViewer from '~/components_local/PetitionsViewer.vue'
 
 export default {
   components: {
@@ -68,7 +68,7 @@ export default {
     MenuHeader,
     FeatureHeaderCenter,
     AnchoredHeading,
-    StateGenerator,
+    PetitionsViewer,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {

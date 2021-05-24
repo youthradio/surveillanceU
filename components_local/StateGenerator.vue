@@ -7,80 +7,31 @@ import * as topojson from 'topojson-client'
 import * as d3Selection from 'd3-selection'
 import * as d3Geo from 'd3-geo'
 import us from './map.json'
-// import data from './petitions-data.json'
 
 const d3 = Object.assign({}, d3Selection, d3Geo)
 
-// const statesCodes = {
-//   Alabama: 'AL',
-//   Alaska: 'AK',
-//   'American Samoa': 'AS',
-//   Arizona: 'AZ',
-//   Arkansas: 'AR',
-//   California: 'CA',
-//   Colorado: 'CO',
-//   Connecticut: 'CT',
-//   Delaware: 'DE',
-//   'District of Columbia': 'DC',
-//   'Federated States Of Micronesia': 'FM',
-//   Florida: 'FL',
-//   Georgia: 'GA',
-//   Guam: 'GU',
-//   Hawaii: 'HI',
-//   Idaho: 'ID',
-//   Illinois: 'IL',
-//   Indiana: 'IN',
-//   Iowa: 'IA',
-//   Kansas: 'KS',
-//   Kentucky: 'KY',
-//   Louisiana: 'LA',
-//   Maine: 'ME',
-//   'Marshall Islands': 'MH',
-//   Maryland: 'MD',
-//   Massachusetts: 'MA',
-//   Michigan: 'MI',
-//   Minnesota: 'MN',
-//   Mississippi: 'MS',
-//   Missouri: 'MO',
-//   Montana: 'MT',
-//   Nebraska: 'NE',
-//   Nevada: 'NV',
-//   'New Hampshire': 'NH',
-//   'New Jersey': 'NJ',
-//   'New Mexico': 'NM',
-//   'New York': 'NY',
-//   'North Carolina': 'NC',
-//   'North Dakota': 'ND',
-//   'Northern Mariana Islands': 'MP',
-//   Ohio: 'OH',
-//   Oklahoma: 'OK',
-//   Oregon: 'OR',
-//   Palau: 'PW',
-//   Pennsylvania: 'PA',
-//   'Puerto Rico': 'PR',
-//   'Rhode Island': 'RI',
-//   'South Carolina': 'SC',
-//   'South Dakota': 'SD',
-//   Tennessee: 'TN',
-//   Texas: 'TX',
-//   Utah: 'UT',
-//   Vermont: 'VT',
-//   'Virgin Islands': 'VI',
-//   Virginia: 'VA',
-//   Washington: 'WA',
-//   'West Virginia': 'WV',
-//   Wisconsin: 'WI',
-//   Wyoming: 'WY',
-// }
-
 export default {
+  props: {
+    width: { type: Number, default: 65 },
+    padding: { type: Number, default: -10 },
+    margin: { type: Number, default: 2 },
+    stateCode: { type: String, required: true },
+    stateName: { type: String, required: true },
+  },
   data() {
     return {
       isMounted: false,
     }
   },
   mounted() {
-    this.getState(this.$refs.svg, 'New York', 'NY', 100, -10, 5)
+    this.getState(
+      this.$refs.svg,
+      this.stateName,
+      this.stateCode,
+      this.width,
+      this.padding,
+      this.margin
+    )
   },
   methods: {
     getState(svgEle, name, stateCode, width, padding, margin) {
@@ -109,8 +60,10 @@ export default {
           width + 2 * margin,
           width + 2 * margin,
         ])
-        .attr('width', width + margin * 2)
+        // .attr('width', width + margin * 2)
         .attr('class', 'state')
+        .style('width', '100%')
+        .style('max-width', width + margin * 2)
 
       const g = svg.append('g').attr('class', 'boundaries')
 
@@ -135,8 +88,8 @@ export default {
       g.selectAll('text')
         .data([feature])
         .join('text')
-        .attr('x', margin + Math.abs(padding))
-        .attr('y', width - margin)
+        .attr('x', 4)
+        .attr('y', width - 4)
         .attr('stroke', 'none')
         .attr('alignment-baseline', 'baseline')
         .text((d) => stateCode)
@@ -150,10 +103,10 @@ export default {
 
 .state {
   font-weight: 700;
+  font-size: 12px;
   fill: $purple;
   stroke: $purple;
   stroke-width: 1;
-  text-anchor: middle;
   &:hover {
     cursor: pointer;
     /deep/ .state-path {
