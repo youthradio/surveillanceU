@@ -8,14 +8,20 @@
     <div class="ba br2 pa3 b--purple">
       <div
         v-dragscroll.x="true"
+        tabindex="0"
         class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
+        @focus="resetTabIndex"
       >
         <div class="max-content justify-around">
           <div
             v-for="[stateName] in sorted(dataByState)"
             :key="stateName"
+            ref="state"
             class="di"
+            tabindex="0"
             @click="selectedState = stateName"
+            @keydown.enter="selectedState = stateName"
+            @keydown.space="selectedState = stateName"
           >
             <state-generator
               :state-code="statesCodes[stateName]"
@@ -25,11 +31,25 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-wrap items-start justify-center">
+      <div
+        ref="cards"
+        v-dragscroll.x="true"
+        tabindex="-1"
+        class="
+          hide-scroll-bar
+          overflow-x-scroll overflow-y-hidden
+          flex
+          items-start
+          justify-start
+        "
+      >
         <card
           v-for="petition in petitionsSelection"
           :key="petition.Quotes"
+          tabindex="0"
+          class="flex-shrink-0"
           :card-data="petition"
+          @focus.native="focusEvent"
         />
       </div>
     </div>
@@ -123,7 +143,23 @@ export default {
       return statesCodes
     },
   },
+  watch: {
+    selectedState() {
+      if (this.$refs.cards) {
+        this.$refs.cards.scrollLeft = 0
+        this.$refs.state.map((s) => (s.tabIndex = -1))
+        this.$refs.cards.click()
+      }
+    },
+  },
   methods: {
+    resetTabIndex() {
+      console.log('dsds')
+      this.$refs.state.map((s) => (s.tabIndex = 0))
+    },
+    focusEvent(e) {
+      this.$refs.cards.scrollLeft = e.target.offsetLeft - e.target.scrollWidth
+    },
     sorted(obj) {
       return [...obj.entries()].sort((a, b) => (a > b ? 1 : -1))
     },
