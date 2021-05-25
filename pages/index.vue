@@ -5,9 +5,7 @@
       <feature-header-center :header-data="headerData" />
     </header>
     <main class="mw8 ph3 center">
-      <div class="measure-wide center pv3">
-        <petitions-viewer />
-      </div>
+      <petitions-viewer />
       <article class="lh-copy">
         <template v-for="section in articleData.intro">
           <div :key="section.title" class="measure-wide center">

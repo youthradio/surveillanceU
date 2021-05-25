@@ -5,39 +5,40 @@
         Select A State
       </div>
     </div>
-    <div
-      v-dragscroll.x="true"
-      class="
-        hide-scroll-bar
-        overflow-x-scroll overflow-y-hidden
-        ba
-        br2
-        pa3
-        b--purple
-      "
-    >
-      <div class="max-content justify-around">
-        <div
-          v-for="[stateName] in sorted(dataByState)"
-          :key="stateName"
-          class="di"
-          @click="selectedState = stateName"
-        >
-          <state-generator
-            :state-code="statesCodes[stateName]"
-            :state-name="stateName"
-            :is-selected="selectedState === stateName"
-          />
+    <div class="ba br2 pa3 b--purple">
+      <div
+        v-dragscroll.x="true"
+        class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
+      >
+        <div class="max-content justify-around">
+          <div
+            v-for="[stateName] in sorted(dataByState)"
+            :key="stateName"
+            class="di"
+            @click="selectedState = stateName"
+          >
+            <state-generator
+              :state-code="statesCodes[stateName]"
+              :state-name="stateName"
+              :is-selected="selectedState === stateName"
+            />
+          </div>
         </div>
       </div>
+      <div class="flex flex-wrap items-start justify-center">
+        <card
+          v-for="petition in petitionsSelection"
+          :key="petition.Quotes"
+          :card-data="petition"
+        />
+      </div>
     </div>
-    <!-- <card :card-data="[...dataByState.values()][0]" /> -->
   </div>
 </template>
 
 <script>
 import * as d3 from 'd3-array'
-// import Card from './Card.vue'
+import Card from './Card.vue'
 import petitionsData from './petitions-data.json'
 import StateGenerator from './StateGenerator.vue'
 
@@ -105,7 +106,7 @@ const statesCodes = {
 export default {
   components: {
     StateGenerator,
-    //   Card
+    Card,
   },
   data() {
     return {
@@ -114,6 +115,10 @@ export default {
     }
   },
   computed: {
+    petitionsSelection() {
+      if (this.selectedState) return this.dataByState.get(this.selectedState)
+      return []
+    },
     statesCodes() {
       return statesCodes
     },
