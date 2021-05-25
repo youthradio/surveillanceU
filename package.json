@@ -36,6 +36,7 @@
     "nuxt": "^2.15.6",
     "scrollmagic": "^2.0.8",
     "topojson-client": "3",
+    "vue-dragscroll": "^3.0.0",
     "vue-observe-visibility": "^1.0.0"
   },
   "devDependencies": {

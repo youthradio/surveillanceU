@@ -1,5 +1,5 @@
 <template>
-  <svg ref="svg" />
+  <svg ref="svg" :class="['state', isSelected ? 'selected' : '']" />
 </template>
 
 <script>
@@ -12,6 +12,7 @@ const d3 = Object.assign({}, d3Selection, d3Geo)
 
 export default {
   props: {
+    isSelected: { type: Boolean, default: false },
     width: { type: Number, default: 65 },
     padding: { type: Number, default: -10 },
     margin: { type: Number, default: 2 },
@@ -61,7 +62,6 @@ export default {
           width + 2 * margin,
         ])
         // .attr('width', width + margin * 2)
-        .attr('class', 'state')
         .style('width', '100%')
         .style('max-width', width + margin * 2)
 
@@ -91,7 +91,6 @@ export default {
         .attr('x', 4)
         .attr('y', width - 4)
         .attr('stroke', 'none')
-        .attr('alignment-baseline', 'baseline')
         .text((d) => stateCode)
     },
   },
@@ -107,14 +106,17 @@ export default {
   fill: $purple;
   stroke: $purple;
   stroke-width: 1;
+  &.selected {
+    stroke-width: 1.5;
+    /deep/ .state-path {
+      fill: $purple;
+    }
+  }
   &:hover {
     cursor: pointer;
     /deep/ .state-path {
       fill: $purple;
     }
   }
-}
-/deep/ .state-text {
-  // text-anchor: middle;
 }
 </style>

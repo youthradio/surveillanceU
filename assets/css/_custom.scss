@@ -220,3 +220,19 @@ a:focus {
 .menu-margin-top {
   margin-top: 68px;
 }
+.max-content {
+  width: max-content;
+}
+.min-content {
+  width: min-content;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  -webkit-appearance: none;
+  -webkit-overflow-scrolling: touch;
+  width: 0;
+  height: 0;
+}
+.no-selection {
+  user-select: none;
+}

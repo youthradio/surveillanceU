@@ -1,14 +1,35 @@
 <template>
-  <div>
-    <div class="flex flex-wrap justify-around">
-      <template v-for="[stateName, i] in sorted(dataByState)">
-        <state-generator
+  <div class="no-selection">
+    <div class="flex">
+      <div class="white center bg-purple ph3 pv1 ma0 br--top br2 b--purple">
+        Select A State
+      </div>
+    </div>
+    <div
+      v-dragscroll.x="true"
+      class="
+        hide-scroll-bar
+        overflow-x-scroll overflow-y-hidden
+        ba
+        br2
+        pa3
+        b--purple
+      "
+    >
+      <div class="max-content justify-around">
+        <div
+          v-for="[stateName] in sorted(dataByState)"
           :key="stateName"
-          :state-code="statesCodes[stateName]"
-          :state-name="stateName"
-        />
-        {{ i.state_code }}
-      </template>
+          class="di"
+          @click="selectedState = stateName"
+        >
+          <state-generator
+            :state-code="statesCodes[stateName]"
+            :state-name="stateName"
+            :is-selected="selectedState === stateName"
+          />
+        </div>
+      </div>
     </div>
     <!-- <card :card-data="[...dataByState.values()][0]" /> -->
   </div>
@@ -89,6 +110,7 @@ export default {
   data() {
     return {
       dataByState: d3.group(petitionsData, (d) => d.state_name),
+      selectedState: null,
     }
   },
   computed: {

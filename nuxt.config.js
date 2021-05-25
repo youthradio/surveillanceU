@@ -91,11 +91,11 @@ export default {
   plugins: [
     {
       src: '~plugins/lazysizes.js',
-      ssr: false,
+      mode: 'client',
     },
     {
-      src: '~plugins/vue-observable.js',
-      ssr: false,
+      src: '~plugins/vue-dragscroll.js',
+      mode: 'client',
     },
   ],
   /*

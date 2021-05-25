@@ -4,8 +4,10 @@
       <MenuHeader />
       <feature-header-center :header-data="headerData" />
     </header>
-    <petitions-viewer />
     <main class="mw8 ph3 center">
+      <div class="measure-wide center pv3">
+        <petitions-viewer />
+      </div>
       <article class="lh-copy">
         <template v-for="section in articleData.intro">
           <div :key="section.title" class="measure-wide center">
@@ -13,8 +15,8 @@
               v-if="section.level != 0"
               class="purple"
               :level="section.level"
-              >{{ section.title }}</AnchoredHeading
-            >
+              >{{ section.title }}
+            </AnchoredHeading>
             <div v-html="section.text" />
           </div>
         </template>
