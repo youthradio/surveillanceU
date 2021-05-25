@@ -12,12 +12,12 @@
         class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
         @focus="resetTabIndex"
       >
-        <div class="max-content justify-around">
+        <div class="flex flex-wrap-ns items-start">
           <div
             v-for="[stateName] in sorted(dataByState)"
             :key="stateName"
             ref="state"
-            class="di"
+            class="di flex-shrink-0"
             tabindex="0"
             @click="selectedState = stateName"
             @keydown.enter="selectedState = stateName"
