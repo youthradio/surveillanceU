@@ -235,6 +235,7 @@ a:focus {
   -webkit-overflow-scrolling: touch;
   width: 0;
   height: 0;
+  scrollbar-width: none;
 }
 .no-selection {
   user-select: none;

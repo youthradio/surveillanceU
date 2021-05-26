@@ -63,7 +63,7 @@ export default {
         ])
         // .attr('width', width + margin * 2)
         .style('width', '100%')
-        .style('max-width', width + margin * 2)
+        .style('max-width', `${width + margin * 2}px`)
 
       const g = svg.append('g').attr('class', 'boundaries')
 
