@@ -71,7 +71,7 @@ export default {
       },
       {
         rel: 'preload',
-        href: 'https://yr.media/statics/yr-media-typography/yr-typography.css',
+        href: 'https://interactive.yr.media/yr-media-typography/yr-typography.css',
         as: 'style',
         onload: `this.onload=null;this.rel='stylesheet'`,
       },
@@ -95,6 +95,10 @@ export default {
     },
     {
       src: '~plugins/vue-dragscroll.js',
+      mode: 'client',
+    },
+    {
+      src: '~plugins/vue-observable.js',
       mode: 'client',
     },
   ],
