@@ -1,5 +1,9 @@
 <template>
-  <svg ref="svg" :class="['state', isSelected ? 'selected' : '']" />
+  <svg
+    ref="svg"
+    :style="svgStyle"
+    :class="['state', isSelected ? 'selected' : '']"
+  />
 </template>
 
 <script>
@@ -23,6 +27,14 @@ export default {
     return {
       isMounted: false,
     }
+  },
+  computed: {
+    svgStyle() {
+      return {
+        width: '100%',
+        maxWidth: `${this.width + this.margin * 2}px`,
+      }
+    },
   },
   mounted() {
     this.getState(
@@ -61,9 +73,6 @@ export default {
           width + 2 * margin,
           width + 2 * margin,
         ])
-        // .attr('width', width + margin * 2)
-        .style('width', '100%')
-        .style('max-width', `${width + margin * 2}px`)
 
       const g = svg.append('g').attr('class', 'boundaries')
 

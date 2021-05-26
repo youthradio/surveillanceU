@@ -1,5 +1,5 @@
 <template>
-  <div class="no-selection">
+  <div v-observe-visibility="visibilityChanged" class="no-selection">
     <div class="flex">
       <div class="white center bg-purple ph3 pv1 ma0 br--top br2 b--purple">
         Select A State
@@ -7,6 +7,7 @@
     </div>
     <div class="ba br2 pa3 b--purple">
       <div
+        ref="states"
         v-dragscroll.x="true"
         tabindex="0"
         class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
@@ -153,8 +154,10 @@ export default {
     },
   },
   methods: {
+    visibilityChanged() {
+      this.$refs.states.scrollLeft = 0
+    },
     resetTabIndex() {
-      console.log('dsds')
       this.$refs.state.map((s) => (s.tabIndex = 0))
     },
     focusEvent(e) {

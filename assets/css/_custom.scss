@@ -80,6 +80,15 @@ html {
 .flex-shrink-0 {
   flex-shrink: 0;
 }
+.flex-grow-2 {
+  flex-grow: 2;
+}
+.flex-grow-1 {
+  flex-grow: 1;
+}
+.flex-grow-0 {
+  flex-grow: 0;
+}
 .bg-oc-washed-red {
   background: rgba($washed-red, 0.5);
 }
@@ -236,6 +245,17 @@ a:focus {
   width: 0;
   height: 0;
   scrollbar-width: none;
+  display: none;
+
+}
+.hide-scroll-bar ::-moz-scrollbar {
+  display: none;
+}
+ 
+.hide-scroll-bar {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-color: transparent transparent; /*just hides the scrollbar for firefox */
 }
 .no-selection {
   user-select: none;

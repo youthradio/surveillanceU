@@ -5,7 +5,6 @@
       <feature-header-center :header-data="headerData" />
     </header>
     <main class="mw8 ph3 center">
-      <petitions-viewer />
       <article class="lh-copy">
         <template v-for="section in articleData.intro">
           <div :key="section.title" class="measure-wide center">
@@ -16,6 +15,12 @@
               >{{ section.title }}
             </AnchoredHeading>
             <div v-html="section.text" />
+
+            <component
+              :is="section.block"
+              v-if="section.block !== ''"
+              class="nl5-ns nr5-ns"
+            />
           </div>
         </template>
         <template v-for="(story, i) in articleData.stories">
