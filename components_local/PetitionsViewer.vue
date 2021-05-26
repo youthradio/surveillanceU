@@ -1,7 +1,7 @@
 <template>
   <div v-observe-visibility="visibilityChanged" class="no-selection">
     <div class="flex">
-      <div class="white center bg-purple ph3 pv1 ma0 br--top br2 b--purple">
+      <div class="white center bg-purple ph3 pv0 ma0 br--top br2 b--purple">
         Select A State
       </div>
     </div>

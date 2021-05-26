@@ -65,6 +65,7 @@ import MenuHeader from '~/components/Header/MenuHeader'
 import FeatureHeaderCenter from '~/components_local/FeatureHeaderCenter'
 import AnchoredHeading from '~/components_local/AnchoredHeading'
 import PetitionsViewer from '~/components_local/PetitionsViewer.vue'
+import InfographicProctoring from '~/components_local/InfographicProctoring.vue'
 
 export default {
   components: {
@@ -74,6 +75,7 @@ export default {
     FeatureHeaderCenter,
     AnchoredHeading,
     PetitionsViewer,
+    InfographicProctoring,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
