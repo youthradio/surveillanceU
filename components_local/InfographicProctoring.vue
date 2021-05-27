@@ -62,6 +62,13 @@
 <script>
 const tabsData = [
   {
+    name: 'Automated Proctoring',
+    images: {
+      mobile: 'images/infographic/automated-mobile.svg',
+      desktop: 'images/infographic/automated.svg',
+    },
+  },
+  {
     name: 'Live Proctoring',
     images: {
       mobile: 'images/infographic/live-mobile.svg',
@@ -73,13 +80,6 @@ const tabsData = [
     images: {
       mobile: 'images/infographic/lockdown-mobile.svg',
       desktop: 'images/infographic/lockdown.svg',
-    },
-  },
-  {
-    name: 'Automated Proctoring',
-    images: {
-      mobile: 'images/infographic/automated-mobile.svg',
-      desktop: 'images/infographic/automated.svg',
     },
   },
 ]

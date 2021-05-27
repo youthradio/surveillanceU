@@ -5,7 +5,7 @@
         Select A State
       </div>
     </div>
-    <div class="ba br2 pa3 b--purple">
+    <div class="ba br2 custom-p b--purple">
       <div
         ref="states"
         v-dragscroll.x="true"
@@ -13,12 +13,12 @@
         class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
         @focus="resetTabIndex"
       >
-        <div class="flex flex-wrap-ns items-start">
+        <div class="flex flex-wrap-ns items-start justify-center">
           <div
             v-for="[stateName] in sorted(dataByState)"
             :key="stateName"
             ref="state"
-            class="di flex-shrink-0 pa-0-2"
+            class="pa1 flex-shrink-0"
             tabindex="0"
             @click="selectedState = stateName"
             @keydown.enter="selectedState = stateName"
@@ -182,4 +182,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import '~@/assets/css/variables';
+.custom-p {
+  padding: 1rem 1.2rem 0.6rem 1.2rem;
+}
 </style>
