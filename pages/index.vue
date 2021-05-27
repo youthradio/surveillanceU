@@ -27,14 +27,17 @@
               <eye-icon class="ph2" />
               <div class="bb b--purple flex-grow-2" />
             </div>
-            <div class="center flex-ns items-end justify-center">
-              <img
-                width="550"
-                height="300"
-                class="db w-100 lazyload"
-                loading="lazy"
-                :data-src="story.image"
-              />
+            <div class="flex-ns items-end justify-center">
+              <div
+                v-observe-visibility="visibilityChanged"
+                class="img-container"
+              >
+                <img
+                  class="db w-100 lazyload"
+                  loading="lazy"
+                  :data-src="story.image"
+                />
+              </div>
               <h2 class="purple f3 f2-ns ma0 ttu mw6-ns ph3-ns lh-solid">
                 {{ romansMap[i] }}
                 <br class="dn di-ns" />
@@ -111,7 +114,15 @@ export default {
   computed: {},
   watch: {},
   mounted() {},
-  methods: {},
+  methods: {
+    visibilityChanged(isVisible, entry) {
+      if (isVisible) {
+        entry.target.classList.add('paint-layer')
+      } else {
+        entry.target.classList.remove('paint-layer')
+      }
+    },
+  },
 }
 </script>
 
