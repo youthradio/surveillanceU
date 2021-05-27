@@ -19,7 +19,7 @@ export default {
     isSelected: { type: Boolean, default: false },
     width: { type: Number, default: 65 },
     padding: { type: Number, default: -10 },
-    margin: { type: Number, default: 2 },
+    margin: { type: Number, default: 1 },
     stateCode: { type: String, required: true },
     stateName: { type: String, required: true },
   },

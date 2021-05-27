@@ -1,18 +1,18 @@
 <template>
-  <div class="purple assistant ba br3 mw-v14 f7 pa2 ma1">
+  <div class="purple assistant ba br3 measure-narrow pa2 ma2">
     <header>
-      <div class="flex justify-between bb items-baseline pv2">
+      <div class="flex justify-between bb items-end pv2">
         <h3 class="purple normal ma0">{{ cardData.University }}</h3>
         <h5 class="purple normal ma0">
-          {{ cardData.city_name }},{{ cardData.state_code }}
+          {{ cardData.city_name }}, {{ cardData.state_code }}
         </h5>
       </div>
     </header>
     <div class="ttc bb pv2">
       <h5 class="purple normal di">USES</h5>
-      <h3 class="purple normal di">{{ cardData.Software.join(',') }}</h3>
+      <h3 class="purple normal di pl2">{{ cardData.Software.join(', ') }}</h3>
     </div>
-    <blockquote class="ma3">
+    <blockquote class="ma0">
       <p class="b">“{{ cardData.Quotes }}”</p>
     </blockquote>
     <h5 class="purple normal pb2 ma0">MAIN CONCERNS</h5>

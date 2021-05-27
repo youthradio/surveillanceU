@@ -246,12 +246,11 @@ a:focus {
   height: 0;
   scrollbar-width: none;
   display: none;
-
 }
 .hide-scroll-bar ::-moz-scrollbar {
   display: none;
 }
- 
+
 .hide-scroll-bar {
   overflow: auto;
   -ms-overflow-style: none;
@@ -263,4 +262,11 @@ a:focus {
 
 .mw-v14 {
   max-width: 14rem;
+}
+
+.mw-v25 {
+  max-width: 25rem;
+}
+.pa-0-2 {
+  padding: 0.2rem;
 }

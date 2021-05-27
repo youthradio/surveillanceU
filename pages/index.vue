@@ -4,23 +4,20 @@
       <MenuHeader />
       <feature-header-center :header-data="headerData" />
     </header>
-    <main class="mw8 ph3 center">
+    <main class="mw7 ph3 center">
       <article class="lh-copy">
         <template v-for="section in articleData.intro">
-          <div :key="section.title" class="measure-wide center">
-            <AnchoredHeading
-              v-if="section.level != 0"
-              class="purple"
-              :level="section.level"
-              >{{ section.title }}
-            </AnchoredHeading>
-            <div v-html="section.text" />
-
-            <component
-              :is="section.block"
-              v-if="section.block !== ''"
-              class="nl5-ns nr5-ns"
-            />
+          <div :key="section.title">
+            <div class="measure-wide center">
+              <AnchoredHeading
+                v-if="section.level != 0"
+                class="purple mb0"
+                :level="section.level"
+                >{{ section.title }}
+              </AnchoredHeading>
+              <div v-html="section.text" />
+            </div>
+            <component :is="section.block" v-if="section.block !== ''" />
           </div>
         </template>
         <template v-for="(story, i) in articleData.stories">
@@ -33,7 +30,7 @@
                 loading="lazy"
                 :data-src="story.image"
               />
-              <h2 class="purple f3 f2-ns ma0 ttu mw6-ns ph3-ns">
+              <h2 class="purple f3 f2-ns ma0 ttu mw6-ns ph3-ns lh-solid">
                 {{ romansMap[i] }}
                 <br class="dn di-ns" />
                 {{ story.title }}

@@ -1,5 +1,5 @@
 <template>
-  <div v-observe-visibility="visibilityChanged" class="no-selection">
+  <div v-observe-visibility="visibilityChanged" class="no-selection center">
     <div class="flex">
       <div class="white center bg-purple ph3 pv0 ma0 br--top br2 b--purple">
         Select A State
@@ -18,7 +18,7 @@
             v-for="[stateName] in sorted(dataByState)"
             :key="stateName"
             ref="state"
-            class="di flex-shrink-0"
+            class="di flex-shrink-0 pa-0-2"
             tabindex="0"
             @click="selectedState = stateName"
             @keydown.enter="selectedState = stateName"
@@ -32,27 +32,31 @@
           </div>
         </div>
       </div>
-      <div
-        ref="cards"
-        v-dragscroll.x="true"
-        tabindex="-1"
-        class="
-          hide-scroll-bar
-          overflow-x-scroll overflow-y-hidden
-          flex
-          items-start
-          justify-start
-        "
-      >
-        <card
-          v-for="petition in petitionsSelection"
-          :key="petition.Quotes"
-          tabindex="0"
-          class="flex-shrink-0"
-          :card-data="petition"
-          @focus.native="focusEvent"
-        />
-      </div>
+    </div>
+
+    <div
+      ref="cards"
+      v-dragscroll.x="true"
+      tabindex="-1"
+      class="
+        hide-scroll-bar
+        overflow-x-scroll overflow-y-hidden
+        flex
+        items-start
+        justify-start
+        nl2
+      "
+      @dragscrollstart="isdragging = true"
+      @dragscrollend="isdragging = true"
+    >
+      <card
+        v-for="petition in petitionsSelection"
+        :key="petition.Quotes"
+        tabindex="0"
+        class="flex-shrink-0"
+        :card-data="petition"
+        @focus.native="focusEvent"
+      />
     </div>
   </div>
 </template>
@@ -133,6 +137,7 @@ export default {
     return {
       dataByState: d3.group(petitionsData, (d) => d.state_name),
       selectedState: null,
+      isdragging: false,
     }
   },
   computed: {
@@ -161,10 +166,16 @@ export default {
       this.$refs.state.map((s) => (s.tabIndex = 0))
     },
     focusEvent(e) {
-      this.$refs.cards.scrollLeft = e.target.offsetLeft - e.target.scrollWidth
+      this.$nextTick(() => {
+        if (this.isdragging) return
+        this.$refs.cards.scrollLeft = e.target.offsetLeft - e.target.scrollWidth
+      })
     },
     sorted(obj) {
       return [...obj.entries()].sort((a, b) => (a > b ? 1 : -1))
+    },
+    dragging(e) {
+      console.log(e)
     },
   },
 }
