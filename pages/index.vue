@@ -13,8 +13,8 @@
                 v-if="section.level != 0"
                 class="purple mb0"
                 :level="section.level"
-                >{{ section.title }}
-              </AnchoredHeading>
+                >{{ section.title }}</AnchoredHeading
+              >
               <div v-html="section.text" />
             </div>
             <component :is="section.block" v-if="section.block !== ''" />
@@ -22,6 +22,11 @@
         </template>
         <template v-for="(story, i) in articleData.stories">
           <div :key="story.title">
+            <div class="flex items-center pv5">
+              <div class="bb b--purple flex-grow-2" />
+              <eye-icon class="ph2" />
+              <div class="bb b--purple flex-grow-2" />
+            </div>
             <div class="center flex-ns items-end justify-center">
               <img
                 width="550"
@@ -63,6 +68,7 @@ import FeatureHeaderCenter from '~/components_local/FeatureHeaderCenter'
 import AnchoredHeading from '~/components_local/AnchoredHeading'
 import PetitionsViewer from '~/components_local/PetitionsViewer.vue'
 import InfographicProctoring from '~/components_local/InfographicProctoring.vue'
+import EyeIcon from '~/components_local/EyeIcon'
 
 export default {
   components: {
@@ -73,6 +79,7 @@ export default {
     AnchoredHeading,
     PetitionsViewer,
     InfographicProctoring,
+    EyeIcon,
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
