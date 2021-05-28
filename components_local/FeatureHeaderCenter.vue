@@ -1,21 +1,19 @@
 <template>
   <div ref="headerImage" class="relative white">
-    <img class="w-100 db" :src="headerData.featureImage" />
+    <img
+      loading="lzay"
+      class="w-100 db lazyload img-fluid"
+      :data-srcset="`${headerData.featureImage}@0.5x.jpg 110w,
+        ${headerData.featureImage}@0.25x.jpg 552w,
+        ${headerData.featureImage}@0.75x.jpg 1651w,
+        ${headerData.featureImage}.jpg 2200w
+        `"
+      :data-src="`${headerData.featureImage}@0.75x.jpg`"
+    />
     <div
-      class="
-        absolute
-        text-shadow
-        flex
-        justify-center
-        items-center
-        tc
-        z-1
-        w-100
-        h-100
-        top-0
-      "
+      class="absolute flex justify-center items-center tc z-1 w-100 h-100 top-0"
     >
-      <div class="mw7 ph3 center">
+      <div class="mw7 ph1 ph4-ns center purple bg-white">
         <h1 class="lh-title-1-1 daysans f1-ns f3 mb0 pa0 ttu">
           {{ headerData.title }}
         </h1>
@@ -55,6 +53,12 @@ export default {
 <style lang="scss" scoped>
 @import '~@/css/vars';
 
+.img-fluid {
+  max-width: 100%;
+  object-fit: cover;
+  object-position: 30% center;
+  min-height: calc(100vh - 70px);
+}
 .base-overlay::after {
   content: '';
   position: absolute;
@@ -80,8 +84,5 @@ export default {
     text-align: center;
     color: $blue-button;
   }
-}
-.text-shadow {
-  text-shadow: -1px 1px 2px black;
 }
 </style>

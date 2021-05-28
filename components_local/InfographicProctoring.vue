@@ -84,9 +84,11 @@ const tabsData = [
   },
 ]
 export default {
+  components: {},
   data() {
     return {
       currentTab: 0,
+      options: ['foo', 'bar', 'baz'],
     }
   },
   computed: {

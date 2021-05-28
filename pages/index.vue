@@ -44,7 +44,7 @@
                   />
                 </div>
                 <div class="f7 purple absolute">
-                  <p class="ma0">{{ story.imageCaption }}</p>
+                  <p class="ma0" v-html="story.imageCaption"></p>
                 </div>
               </div>
               <h2 class="purple f3 f2-ns ma0-ns mt0 ttu mw6-ns ph3-ns lh-solid">
@@ -62,7 +62,7 @@
           <div class="bb b--purple flex-grow-2" />
         </div>
         <div class="measure-wide center purple">
-          <AnchoredHeading class="purple mb0" :level="3"
+          <AnchoredHeading class="purple mb0" level="3"
             >Credits</AnchoredHeading
           >
 

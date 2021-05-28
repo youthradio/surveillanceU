@@ -78,6 +78,13 @@ function markdown2html(data) {
             KEEP_CONTENT: true,
           }
         }
+        if (key === 'imageCaption') {
+          configDom = {
+            ADD_ATTR: ['target'],
+            ALLOWED_TAGS: ['a', 'b', 'strong', 'i'],
+            KEEP_CONTENT: true,
+          }
+        }
         obj[key] = DOMPurify.sanitize(marked(obj[key]), configDom).trim()
         // make slugs from titles
         if (key === 'title') {
