@@ -277,12 +277,24 @@ a:focus {
 .img-container {
   position: relative;
   width: 100%;
+}
+.aspect-1{
   aspect-ratio: 550 / 300;
+}
+.aspect-2{
+  aspect-ratio: 1100 / 732;
 }
 .img-container::after {
   content: '';
-  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
   background-color: white;
+  mix-blend-mode: color;
+  opacity: 0;
+  transition-duration: 2s, 2s;
+  transition-timing-function: ease-in-out;
 }
 .paint-layer::after {
   content: '';
@@ -293,7 +305,8 @@ a:focus {
   background-color: $purple;
   mix-blend-mode: color;
   opacity: 1;
-  transition-duration: 3s;
+  transition-duration: 2s, 2s;
+  transition-timing-function: ease-in-out;
 }
 .lh-1-2 {
   line-height: 1.2;

@@ -27,16 +27,25 @@
               <eye-icon class="ph2" />
               <div class="bb b--purple flex-grow-2" />
             </div>
-            <div class="flex-ns items-end justify-center">
-              <div
-                v-observe-visibility="visibilityChanged"
-                class="img-container"
-              >
-                <img
-                  class="db w-100 lazyload"
-                  loading="lazy"
-                  :data-src="story.image"
-                />
+            <div
+              class="
+                flex flex-row-ns flex-column-reverse
+                items-end-ns
+                justify-center
+                pb5
+              "
+            >
+              <div class="relative">
+                <div class="img-container aspect-1">
+                  <img
+                    class="db w-100 lazyload"
+                    loading="lazy"
+                    :data-src="story.image"
+                  />
+                </div>
+                <div class="f7 purple absolute">
+                  <p class="ma0">{{ story.imageCaption }}</p>
+                </div>
               </div>
               <h2 class="purple f3 f2-ns ma0 ttu mw6-ns ph3-ns lh-solid">
                 {{ romansMap[i] }}
@@ -113,16 +122,25 @@ export default {
   },
   computed: {},
   watch: {},
-  mounted() {},
-  methods: {
-    visibilityChanged(isVisible, entry) {
-      if (isVisible) {
-        entry.target.classList.add('paint-layer')
-      } else {
-        entry.target.classList.remove('paint-layer')
-      }
-    },
+  mounted() {
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('paint-layer')
+          } else {
+            entry.target.classList.remove('paint-layer')
+          }
+        }
+      },
+      { threshold: 1.0 }
+    )
+
+    this.$el
+      .querySelectorAll('.img-container')
+      .forEach((e) => observer.observe(e))
   },
+  methods: {},
 }
 </script>
 
