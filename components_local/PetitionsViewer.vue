@@ -141,7 +141,7 @@ export default {
     return {
       dataByState: d3.group(petitionsData, (d) => d.state_name),
       selectedState: null,
-      isdragging: false,
+      isdragging: true,
     }
   },
   computed: {
@@ -177,9 +177,6 @@ export default {
     },
     sorted(obj) {
       return [...obj.entries()].sort((a, b) => (a > b ? 1 : -1))
-    },
-    dragging(e) {
-      console.log(e)
     },
   },
 }
