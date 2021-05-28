@@ -22,7 +22,7 @@
         </template>
         <template v-for="(story, i) in articleData.stories">
           <div :key="story.title">
-            <div class="flex items-center pv5">
+            <div class="flex items-center pv4">
               <div class="bb b--purple flex-grow-2" />
               <eye-icon class="ph2" />
               <div class="bb b--purple flex-grow-2" />
@@ -47,7 +47,7 @@
                   <p class="ma0">{{ story.imageCaption }}</p>
                 </div>
               </div>
-              <h2 class="purple f3 f2-ns ma0 ttu mw6-ns ph3-ns lh-solid">
+              <h2 class="purple f3 f2-ns ma0-ns mt0 ttu mw6-ns ph3-ns lh-solid">
                 {{ romansMap[i] }}
                 <br class="dn di-ns" />
                 {{ story.title }}
@@ -56,6 +56,25 @@
             <div class="measure-wide center" v-html="story.text" />
           </div>
         </template>
+        <div class="flex items-center pv4">
+          <div class="bb b--purple flex-grow-2" />
+          <eye-icon class="ph2" />
+          <div class="bb b--purple flex-grow-2" />
+        </div>
+        <div class="measure-wide center purple">
+          <AnchoredHeading class="purple mb0" :level="3"
+            >Credits</AnchoredHeading
+          >
+
+          <dl
+            v-for="credit in articleData.credits.list"
+            :key="credit.name"
+            class="f6 lh-title mv1"
+          >
+            <dt class="dib b">{{ credit.title }}:</dt>
+            <dd class="dib ml0">{{ credit.names }}</dd>
+          </dl>
+        </div>
       </article>
       <ShareContainer
         :vertical-mode="false"
