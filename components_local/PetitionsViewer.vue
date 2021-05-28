@@ -13,7 +13,7 @@
         class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
         @focus="resetTabIndex"
       >
-        <div class="flex flex-wrap-ns items-start justify-center">
+        <div class="flex flex-wrap-ns items-start justify-center-ns">
           <div
             v-for="[stateName] in sorted(dataByState)"
             :key="stateName"
