@@ -9,6 +9,9 @@
 .assistant {
   font-family: 'Assistant', sans-serif;
 }
+.solano-gothic {
+  font-family: 'Solano Gothic MVB', sans-serif;
+}
 
 body,
 html {
@@ -278,6 +281,7 @@ a:focus {
 }
 .img-container::after {
   content: '';
+  opacity: 0;
   background-color: white;
 }
 .paint-layer::after {
@@ -288,7 +292,8 @@ a:focus {
   height: 100%;
   background-color: $purple;
   mix-blend-mode: color;
-  transition-duration: 2s;
+  opacity: 1;
+  transition-duration: 3s;
 }
 .lh-1-2 {
   line-height: 1.2;

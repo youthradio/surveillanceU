@@ -11,6 +11,9 @@
         v-dragscroll.x="true"
         tabindex="0"
         class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
+        :style="{ cursor: isdragging ? 'move' : 'pointer' }"
+        @dragscrollstart="isdragging = true"
+        @dragscrollend="isdragging = false"
         @focus="resetTabIndex"
       >
         <div class="flex flex-wrap-ns items-start justify-center-ns">
@@ -46,8 +49,9 @@
         justify-start
         nl2
       "
+      :style="{ cursor: isdragging ? 'move' : 'pointer' }"
       @dragscrollstart="isdragging = true"
-      @dragscrollend="isdragging = true"
+      @dragscrollend="isdragging = false"
     >
       <card
         v-for="petition in petitionsSelection"

@@ -1,8 +1,10 @@
 <template>
-  <div class="purple assistant ba br3 card f5-ns f7 ma2">
+  <div class="purple assistant ba br3 card f-ns f7 ma2">
     <header>
       <div class="flex justify-between bb items-end pv2">
-        <h3 class="purple normal f5-ns f7 ma0">{{ cardData.University }}</h3>
+        <h3 class="purple normal f5-ns f7 ma0 lh-c">
+          {{ cardData.University }}
+        </h3>
         <h5 class="purple normal ma0">
           {{ cardData.city_name }}, {{ cardData.state_code }}
         </h5>
@@ -17,7 +19,7 @@
     <blockquote class="ma0 lh-1-2">
       <p class="b">“{{ cardData.Quotes }}”</p>
     </blockquote>
-    <h5 class="purple normal pb2 ma0">MAIN CONCERNS</h5>
+    <h5 class="purple normal pb1 ma0">MAIN CONCERNS</h5>
     <div class="bb bt pv2">
       <h3
         v-for="(t, i) in cardData.tags"
@@ -58,5 +60,8 @@ export default {
 .card {
   max-width: 18em;
   padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+}
+.lh-c {
+  line-height: 1.15;
 }
 </style>

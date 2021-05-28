@@ -1,27 +1,31 @@
 <template>
-  <div ref="headerImage" class="relative white min-50vh">
+  <div ref="headerImage" class="relative white">
+    <img class="w-100 db" :src="headerData.featureImage" />
     <div
-      :style="{
-        backgroundImage: `url(${headerData.featureImage})`,
-      }"
       class="
-        bg-img-cover
-        min-70vh
+        absolute
         text-shadow
         flex
         justify-center
         items-center
         tc
         z-1
+        w-100
+        h-100
+        top-0
       "
     >
-      <div>
+      <div class="mw7 ph3 center">
         <h1 class="lh-title-1-1 daysans f1-ns f3 ma0 pa0 ttu">
           {{ headerData.title }}
         </h1>
         <h2 class="lh-title-1-1 normal assistant f3-ns f4 ma0 pa0">
           {{ headerData.subheadline }}
         </h2>
+        <div class="bb b--white" />
+        <h3 class="lh-title-1-1 normal f3-ns f4 ma0 pa0 solano-gothic">
+          By {{ headerData.author }}
+        </h3>
       </div>
     </div>
   </div>
