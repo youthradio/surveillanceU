@@ -1,5 +1,5 @@
 <template>
-  <div class="purple assistant ba br3 card f-ns f7 ma2">
+  <div class="purple assistant ba br3 card f5-ns f7 ma2">
     <header>
       <div class="flex justify-between bb items-end pv2">
         <h3 class="purple normal f5-ns f7 ma0 lh-c">

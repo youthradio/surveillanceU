@@ -36,7 +36,32 @@
         </div>
       </div>
     </div>
-
+    <div
+      v-if="petitionsSelection.length > 2 || (isMounted && innerWidth() < 736)"
+      class="flex items-center justify-center mt2"
+    >
+      <svg
+        class="db ph2"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        width="8"
+        height="10"
+        viewBox="0 0 8 10"
+      >
+        <path d="M0 5L7.5.67v8.66L0 5z" fill="#5257E6" />
+      </svg>
+      <span class="purple b f7">DRAG FOR MORE</span>
+      <svg
+        class="db ph2"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        width="8"
+        height="10"
+        viewBox="0 0 8 10"
+      >
+        <path d="M8 5L.5 9.33V.67L8 5z" fill="#5257E6" />
+      </svg>
+    </div>
     <div
       ref="cards"
       v-dragscroll.x="true"
@@ -142,6 +167,7 @@ export default {
       dataByState: d3.group(petitionsData, (d) => d.state_name),
       selectedState: null,
       isdragging: true,
+      isMounted: false,
     }
   },
   computed: {
@@ -162,7 +188,13 @@ export default {
       }
     },
   },
+  mounted() {
+    this.isMounted = true
+  },
   methods: {
+    innerWidth() {
+      return window.innerWidth
+    },
     visibilityChanged() {
       this.$refs.states.scrollLeft = 0
     },
