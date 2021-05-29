@@ -22,7 +22,7 @@
         </template>
         <template v-for="(story, i) in articleData.stories">
           <div :key="story.title">
-            <div class="flex items-center pv4">
+            <div class="flex items-center chapter-space">
               <div class="bb b--purple flex-grow-2" />
               <eye-icon class="ph2" />
               <div class="bb b--purple flex-grow-2" />
@@ -43,7 +43,7 @@
                     :data-src="story.image"
                   />
                 </div>
-                <div class="f7 purple absolute">
+                <div class="f7 black absolute lh-solid pt1">
                   <p class="ma0" v-html="story.imageCaption"></p>
                 </div>
               </div>
@@ -56,7 +56,7 @@
             <div class="measure-wide center" v-html="story.text" />
           </div>
         </template>
-        <div class="flex items-center pv4">
+        <div class="flex items-center chapter-space">
           <div class="bb b--purple flex-grow-2" />
           <eye-icon class="ph2" />
           <div class="bb b--purple flex-grow-2" />

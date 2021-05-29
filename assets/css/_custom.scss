@@ -278,14 +278,13 @@ a:focus {
   position: relative;
   width: 100%;
 }
-.aspect-1{
+.aspect-1 {
   aspect-ratio: 550 / 300;
 }
-.aspect-2{
+.aspect-2 {
   aspect-ratio: 1100 / 732;
 }
-.img-container{
-
+.img-container {
   img {
     filter: grayscale(0%);
     transition-duration: 2s, 2s;
@@ -322,4 +321,14 @@ a:focus {
 }
 .lh-1-2 {
   line-height: 1.2;
+}
+.chapter-space {
+  padding-top: 2.5rem;
+  padding-bottom: 3.2rem;
+}
+@media #{$breakpoint-not-small} {
+  .chapter-space {
+    padding-top: 5rem;
+    padding-bottom: 6.5rem;
+  }
 }
