@@ -11,7 +11,7 @@
             <div class="measure-wide center">
               <AnchoredHeading
                 v-if="section.level != 0"
-                class="purple mb0"
+                class="purple mb0 lh-solid"
                 :level="section.level"
                 >{{ section.title }}</AnchoredHeading
               >

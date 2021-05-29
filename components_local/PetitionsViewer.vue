@@ -66,26 +66,21 @@
       ref="cards"
       v-dragscroll.x="true"
       tabindex="-1"
-      class="
-        hide-scroll-bar
-        overflow-x-scroll overflow-y-hidden
-        flex
-        items-start
-        justify-start
-        nl2
-      "
+      class="hide-scroll-bar overflow-x-scroll overflow-y-hidden nl2"
       :style="{ cursor: isdragging ? 'move' : 'pointer' }"
       @dragscrollstart="isdragging = true"
       @dragscrollend="isdragging = false"
     >
-      <card
-        v-for="petition in petitionsSelection"
-        :key="petition.Quotes"
-        tabindex="0"
-        class="flex-shrink-0"
-        :card-data="petition"
-        @focus.native="focusEvent"
-      />
+      <div class="flex items-start justify-start center max-content">
+        <card
+          v-for="petition in petitionsSelection"
+          :key="petition.Quotes"
+          tabindex="0"
+          class="flex-shrink-0"
+          :card-data="petition"
+          @focus.native="focusEvent"
+        />
+      </div>
     </div>
   </div>
 </template>
