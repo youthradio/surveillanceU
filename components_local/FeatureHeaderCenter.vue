@@ -11,7 +11,10 @@
       :data-src="`${headerData.featureImage}@0.75x.jpg`"
     />
     <div
-      class="absolute flex justify-center items-center tc z-1 w-100 h-100 top-0"
+      :class="[
+        'absolute flex justify-center items-center tc z-1 w-100 h-100 top-0',
+        isvisible ? '' : 'dn',
+      ]"
     >
       <div class="mw7 ph1 ph4-ns center purple bg-white">
         <h1 class="lh-title-1-1 daysans f1-ns f3 mb0 pa0 ttu">
@@ -44,7 +47,12 @@ export default {
     },
   },
   data() {
-    return {}
+    return {
+      isvisible: false,
+    }
+  },
+  mounted() {
+    setTimeout(() => (this.isvisible = true), 1200)
   },
   methods: {},
 }
