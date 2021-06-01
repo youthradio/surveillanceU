@@ -11,7 +11,7 @@
           ma0
           f7
           f6-ns
-          br--top
+          br--top-ns br
           bt
           bl
           br
