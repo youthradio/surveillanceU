@@ -1,42 +1,44 @@
 <template>
   <div class="no-selection">
-    <div
-      role="tablist"
-      aria-label="Proctoring Tools Infographic"
-      class="
-        flex
-        purple
-        center
-        pv0
-        ma0
-        br--top
-        bt
-        bl
-        br
-        br2
-        b--purple
-        max-content
-        pointer
-      "
-    >
+    <div class="db flex-ns justify-center tc">
       <div
-        v-for="(tab, i) in tabsData"
-        :id="`tab-${i}`"
-        ref="tab"
-        :key="tab.name"
-        :class="[
-          'ph2',
-          i % 2 == 0 ? '' : 'bl br',
-          currentTab === i ? 'white bg-purple' : '',
-        ]"
-        :aria-selected="currentTab === i"
-        :aria-controls="`panel-${i}`"
-        tabindex="0"
-        @click="currentTab = i"
-        @keydown.enter="currentTab = i"
-        @keydown.space="currentTab = i"
+        role="tablist"
+        aria-label="Proctoring Tools Infographic"
+        class="
+          flex flex-column flex-row-ns
+          purple
+          pv0
+          ma0
+          f7
+          f6-ns
+          br--top
+          bt
+          bl
+          br
+          br2
+          b--purple
+          pointer
+        "
       >
-        {{ tab.name }}
+        <div
+          v-for="(tab, i) in tabsData"
+          :id="`tab-${i}`"
+          ref="tab"
+          :key="tab.name"
+          :class="[
+            'ph2',
+            i % 2 == 0 ? '' : 'bt bb bt-0-ns bb-0-ns bl-ns br-ns',
+            currentTab === i ? 'white bg-purple' : '',
+          ]"
+          :aria-selected="currentTab === i"
+          :aria-controls="`panel-${i}`"
+          tabindex="0"
+          @click="currentTab = i"
+          @keydown.enter="currentTab = i"
+          @keydown.space="currentTab = i"
+        >
+          {{ tab.name }}
+        </div>
       </div>
     </div>
     <div

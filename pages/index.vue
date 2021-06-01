@@ -72,7 +72,7 @@
             class="f6 lh-title mv1"
           >
             <dt class="dib b">{{ credit.title }}:</dt>
-            <dd class="dib ml0">{{ credit.names }}</dd>
+            <dd class="dib ml0" v-html="credit.textlinks"></dd>
           </dl>
           <div v-html="articleData.credits.text" />
         </div>

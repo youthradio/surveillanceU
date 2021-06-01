@@ -80,7 +80,7 @@ function markdown2html(data) {
             KEEP_CONTENT: true,
           }
         }
-        if (key === 'imageCaption') {
+        if (key === 'imageCaption' || key === 'textlinks') {
           configDom = {
             ADD_ATTR: ['target'],
             ALLOWED_TAGS: ['a', 'b', 'strong', 'i'],
