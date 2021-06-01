@@ -74,6 +74,8 @@ function markdown2html(data) {
               'li',
               'blockquote',
               'ul',
+              'video',
+              'source',
             ],
             KEEP_CONTENT: true,
           }

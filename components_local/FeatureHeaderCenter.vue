@@ -51,7 +51,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => (this.isvisible = true), 1200)
+    setTimeout(() => (this.isvisible = true), 500)
   },
   methods: {},
 }
