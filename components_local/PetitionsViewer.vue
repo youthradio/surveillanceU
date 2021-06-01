@@ -35,6 +35,18 @@
           </div>
         </div>
       </div>
+      <div class="tr f7 black lh-solid pa0 nb2">
+        <small>
+          Source:
+          <a
+            target="_blank"
+            rel="nofollow"
+            class="link purple underline underline-hover hover-dark-purple"
+            href="https://www.change.org/search?q=proctoring"
+            >https://www.change.org
+          </a>
+        </small>
+      </div>
     </div>
     <div
       v-if="petitionsSelection.length > 2 || (isMounted && innerWidth() < 736)"
