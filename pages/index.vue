@@ -74,6 +74,7 @@
             <dt class="dib b">{{ credit.title }}:</dt>
             <dd class="dib ml0">{{ credit.names }}</dd>
           </dl>
+          <div v-html="articleData.credits.text" />
         </div>
       </article>
       <ShareContainer
