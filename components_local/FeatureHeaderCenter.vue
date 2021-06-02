@@ -64,9 +64,5 @@ export default {
   max-width: 100%;
   object-fit: cover;
   min-height: calc(80vh - 70px);
-  object-position: 30% center;
-  @media #{$breakpoint-not-small} {
-    object-position: center center;
-  }
 }
 </style>
