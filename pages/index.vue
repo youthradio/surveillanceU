@@ -5,7 +5,7 @@
       <feature-header-center :header-data="headerData" />
     </header>
     <main class="mw7 ph3 center">
-      <article role="article" class="lh-copy">
+      <article class="lh-copy">
         <template v-for="section in articleData.intro">
           <div :key="section.title">
             <div class="measure-wide center">
@@ -20,7 +20,7 @@
             <component :is="section.block" v-if="section.block !== ''" />
           </div>
         </template>
-        <template role="article" v-for="(story, i) in articleData.stories">
+        <template v-for="(story, i) in articleData.stories">
           <div :key="story.title">
             <div class="flex items-center chapter-space">
               <div class="bb b--purple flex-grow-2" />
@@ -35,13 +35,11 @@
                 pb5
               "
             >
-            <!-- aria-describedby could be binded to vue with an alt of an image -->
               <div class="relative">
                 <div class="img-container aspect-1">
                   <img
                     class="db w-100 lazyload"
                     loading="lazy"
-                    aria-describedby="null"
                     :data-src="story.image"
                   />
                 </div>
