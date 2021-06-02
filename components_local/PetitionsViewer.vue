@@ -197,6 +197,10 @@ export default {
   mounted() {
     this.isMounted = true
     this.innerWidth = window.innerWidth
+    window.addEventListener(
+      'resize',
+      () => (this.innerWidth = window.innerWidth)
+    )
   },
   methods: {
     visibilityChanged() {
