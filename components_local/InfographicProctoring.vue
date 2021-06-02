@@ -11,7 +11,7 @@
           ma0
           f7
           f6-ns
-          br--top-ns br
+          br--top
           bt
           bl
           br
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div
-      class="ba br2 b--purple pa3"
+      class="ba br--bottom br2-ns br2 b--purple pa3"
       role="tabpanel"
       tabindex="0"
       :aria-labelledby="`tab-${currentTab}`"
