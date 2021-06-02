@@ -58,38 +58,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~@/css/vars';
+@import '~@/assets/css/variables';
 
 .img-fluid {
   max-width: 100%;
   object-fit: cover;
-  object-position: 30% center;
   min-height: calc(100vh - 70px);
-}
-.base-overlay::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 45%;
-  background-color: rgba(lighten($feature-header-color, 20%), 0.8);
-  z-index: 0;
-}
-
-.image-caption {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  bottom: -1rem;
-  z-index: 1;
-  span {
-    font-weight: 400;
-    font-size: 0.5rem;
-    line-height: 1rem;
-    font-family: 'Roboto Mono', sans-serif;
-    text-align: center;
-    color: $blue-button;
+  object-position: 30% center;
+  @media #{$breakpoint-not-small} {
+    object-position: center center;
   }
 }
 </style>
