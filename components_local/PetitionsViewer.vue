@@ -8,7 +8,7 @@
     <div class="ba br2 custom-p b--purple">
       <div
         ref="states"
-        v-dragscroll.x="true"
+        v-dragscroll.x="{ active: innerWidth > 736 }"
         tabindex="0"
         class="hide-scroll-bar overflow-x-scroll overflow-y-hidden"
         :style="{ cursor: isdragging ? 'move' : 'pointer' }"
@@ -47,7 +47,7 @@
       </a>
     </div>
     <div
-      v-if="petitionsSelection.length > 2 || (isMounted && innerWidth() < 736)"
+      v-if="petitionsSelection.length > 2 || (isMounted && innerWidth < 736)"
       class="flex items-center justify-center mt2"
     >
       <svg
@@ -74,7 +74,7 @@
     </div>
     <div
       ref="cards"
-      v-dragscroll.x="true"
+      v-dragscroll.x="{ active: innerWidth > 736 }"
       tabindex="-1"
       class="hide-scroll-bar overflow-x-scroll overflow-y-hidden nl2"
       :style="{ cursor: isdragging ? 'move' : 'pointer' }"
@@ -173,6 +173,7 @@ export default {
       selectedState: null,
       isdragging: true,
       isMounted: false,
+      innerWidth: null,
     }
   },
   computed: {
@@ -195,11 +196,9 @@ export default {
   },
   mounted() {
     this.isMounted = true
+    this.innerWidth = window.innerWidth
   },
   methods: {
-    innerWidth() {
-      return window.innerWidth
-    },
     visibilityChanged() {
       this.$refs.states.scrollLeft = 0
     },
