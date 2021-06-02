@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="tr f7 black lh-solid pa0 nb2 tr">
+    <div class="tr f7 black lh-solid pa0 pt1 pb2 tr">
       Source:
       <a
         target="_blank"
@@ -48,7 +48,7 @@
     </div>
     <div
       v-if="petitionsSelection.length > 2 || (isMounted && innerWidth < 736)"
-      class="flex items-center justify-center mt2"
+      class="flex items-center justify-center mt0"
     >
       <svg
         class="db ph2"
