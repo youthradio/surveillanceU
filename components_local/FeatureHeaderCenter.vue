@@ -63,7 +63,7 @@ export default {
 .img-fluid {
   max-width: 100%;
   object-fit: cover;
-  min-height: calc(100vh - 70px);
+  min-height: calc(80vh - 70px);
   object-position: 30% center;
   @media #{$breakpoint-not-small} {
     object-position: center center;
