@@ -5,7 +5,7 @@
         <h3 class="purple normal f5-ns f7 ma0 lh-c">
           {{ cardData.University }}
         </h3>
-        <h5 class="purple normal ma0">
+        <h5 class="purple normal ma0 lh-1-15">
           {{ cardData.city_name }}, {{ cardData.state_code }}
         </h5>
       </div>
