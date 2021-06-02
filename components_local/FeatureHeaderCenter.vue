@@ -12,8 +12,8 @@
     />
     <div
       :class="[
-        'absolute flex justify-center items-center tc z-1 w-100 h-100 top-0',
-        isvisible ? '' : 'dn',
+        'absolute justify-center items-end tc z-1 w-100 h-75 top-0',
+        isvisible ? 'flex' : 'dn',
       ]"
     >
       <div class="mw7 ph3 ph4-ns center purple bg-white br2">
@@ -63,6 +63,6 @@ export default {
 .img-fluid {
   max-width: 100%;
   object-fit: cover;
-  min-height: calc(80vh - 70px);
+  height: calc(100vh - 70px);
 }
 </style>
