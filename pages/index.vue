@@ -35,7 +35,7 @@
                 pb5
               "
             >
-              <div class="relative">
+              <div class="relative flex-basis-100">
                 <div class="img-container aspect-1">
                   <img
                     class="db w-100 lazyload"
@@ -47,7 +47,20 @@
                   <p class="ma0" v-html="story.imageCaption"></p>
                 </div>
               </div>
-              <h2 class="purple f3 f2-ns ma0-ns mt0 ttu mw6-ns ph3-ns lh-solid">
+              <h2
+                class="
+                  purple
+                  f3
+                  f2-ns
+                  ma0-ns
+                  mt0
+                  ttu
+                  mw6-ns
+                  ph3-ns
+                  lh-solid
+                  flex-shrink-2
+                "
+              >
                 {{ romansMap[i] }}
                 <br class="dn di-ns" />
                 {{ story.title }}

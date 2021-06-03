@@ -1,7 +1,7 @@
 <template>
   <div ref="headerImage" class="relative white">
     <img
-      loading="lzay"
+      loading="lazy"
       class="w-100 db lazyload img-fluid"
       :data-srcset="`${headerData.featureImage}@0.5x.jpg 110w,
         ${headerData.featureImage}@0.25x.jpg 552w,
