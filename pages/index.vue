@@ -3,7 +3,15 @@
     <header>
       <MenuHeader />
       <feature-header-center :header-data="headerData" />
+      <ShareContainer
+        :vertical-mode="false"
+        :title="postData.title"
+        :description="postData.description"
+        :tweet-message="postData.tweetMessage"
+        class="mv3"
+      />
     </header>
+
     <main class="mw7 ph3 center">
       <article class="lh-copy">
         <template v-for="section in articleData.intro">
@@ -90,13 +98,6 @@
           <div v-html="articleData.credits.text" />
         </div>
       </article>
-      <ShareContainer
-        :vertical-mode="false"
-        :title="postData.title"
-        :description="postData.description"
-        :tweet-message="postData.tweetMessage"
-        class="mv3"
-      />
     </main>
     <FooterContainer />
   </div>
@@ -106,7 +107,7 @@
 import POSTCONFIG from '../post.config'
 import CommonUtils from '../mixins/CommonUtils'
 import ArticleData from '../data/data.json'
-import ShareContainer from '~/components/Custom/ShareContainer'
+import ShareContainer from '~/components_local/ShareContainer'
 import FooterContainer from '~/components/Footer/FooterContainer'
 import MenuHeader from '~/components/Header/MenuHeader'
 import FeatureHeaderCenter from '~/components_local/FeatureHeaderCenter'
