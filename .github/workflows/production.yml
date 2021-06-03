@@ -35,7 +35,7 @@ jobs:
       - name: Rebuild for Production
         run: yarn publish-ghpages
         env:
-          BASE_URL_PRODUCTION: /static-nuxt-template
+          BASE_URL_PRODUCTION: /has-virtual-proctoring-gone-too-far
 
       - name: Deploy Production
         uses: peaceiris/actions-gh-pages@v3
@@ -55,5 +55,5 @@ jobs:
           key: ${{ secrets.key }}
           port: ${{ secrets.PORT }}
           script: |
-            cd static//static-nuxt-template
+            cd static/has-virtual-proctoring-gone-too-far
             git fetch && git reset --hard FETCH_HEAD && git clean -df
