@@ -87,7 +87,7 @@
           v-for="petition in petitionsSelection"
           :key="petition.Quotes"
           tabindex="0"
-          :aria-label="petition.Quotes"
+          :aria-label="petition.University + ' says ' + petition.Quotes"
           class="flex-shrink-0"
           :card-data="petition"
           @focus.native="focusEvent"
