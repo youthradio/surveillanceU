@@ -12,8 +12,8 @@
     />
     <div
       :class="[
-        'absolute justify-center items-end tc z-1 w-100 h-75 top-0',
-        isvisible ? 'flex' : 'dn',
+        'flex absolute justify-center items-end tc z-1 w-100 h-75 top-0',
+        isvisible ? 'transition-on' : 'transition-off',
       ]"
     >
       <div class="mw7 ph3 ph4-ns center purple bg-white br2">
@@ -51,9 +51,27 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => (this.isvisible = true), 500)
+    setTimeout(async () => {
+      await this.checkFont()
+      this.isvisible = true
+    }, 500)
   },
-  methods: {},
+  methods: {
+    checkFont() {
+      return new Promise((resolve, reject) => {
+        this.interval = setInterval(() => {
+          if (typeof document.fonts.check === 'function') {
+            if (document.fonts.check('12px Days Sans')) {
+              clearInterval(this.interval)
+              resolve()
+            }
+          } else {
+            resolve()
+          }
+        }, 10)
+      })
+    },
+  },
 }
 </script>
 
@@ -64,5 +82,12 @@ export default {
   max-width: 100%;
   object-fit: cover;
   height: calc(100vh - 70px);
+}
+.transition-off {
+  opacity: 0;
+}
+.transition-on {
+  transition: opacity 0.5s ease-in;
+  opacity: 1;
 }
 </style>
