@@ -5,9 +5,9 @@
       <feature-header-center :header-data="headerData" />
       <ShareContainer
         :vertical-mode="false"
-        :title="postData.title"
-        :description="postData.description"
-        :tweet-message="postData.tweetMessage"
+        :title="`${articleData.headline}: ${articleData.subheadline}`"
+        :description="articleData.description"
+        :tweet-message="articleData.tweetMessage"
         class="mv3"
       />
     </header>
@@ -90,7 +90,7 @@
           <dl
             v-for="credit in articleData.credits.list"
             :key="credit.name"
-            class="f6 lh-title mv1"
+            class="lh-title mv1"
           >
             <dt class="dib b">{{ credit.title }}:</dt>
             <dd class="dib ml0" v-html="credit.textlinks"></dd>
@@ -104,7 +104,6 @@
 </template>
 
 <script>
-import POSTCONFIG from '../post.config'
 import CommonUtils from '../mixins/CommonUtils'
 import ArticleData from '../data/data.json'
 import ShareContainer from '~/components_local/ShareContainer'
@@ -129,17 +128,17 @@ export default {
   },
   mixins: [CommonUtils],
   asyncData(ctx) {
+    const articleData = ArticleData.content[0]
     return {
-      articleData: ArticleData.content[0],
-      postData: POSTCONFIG,
+      articleData,
       headerData: {
-        featureImage: POSTCONFIG.featureImagePath,
-        title: POSTCONFIG.title,
-        subheadline: POSTCONFIG.subheadline,
-        author: POSTCONFIG.author,
-        imageCaption: POSTCONFIG.featureImageCaption,
-        publishDate: POSTCONFIG.publishDate,
-        location: POSTCONFIG.location,
+        featureImage: articleData.featureImage,
+        title: articleData.headline,
+        subheadline: articleData.subheadline,
+        author: articleData.author,
+        imageCaption: articleData.featureImageDescription,
+        publishDate: articleData.publishDate,
+        location: articleData.location,
       },
     }
   },
