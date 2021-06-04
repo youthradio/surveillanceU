@@ -32,6 +32,7 @@
           ]"
           :aria-selected="currentTab === i"
           :aria-controls="`panel-${i}`"
+          :aria-label="tab.name"
           tabindex="0"
           @click="currentTab = i"
           @keydown.enter="currentTab = i"
