@@ -16,6 +16,7 @@
                 >{{ section.title }}</AnchoredHeading
               >
               <div v-html="section.text" />
+              <!-- Unfortunately the intro of this article existing through the innerHTML function means we can only add alts and other access features through the documentation itself. Is it not possible to print the intro? -->
             </div>
             <component :is="section.block" v-if="section.block !== ''" />
           </div>
@@ -41,6 +42,7 @@
                     class="db w-100 lazyload"
                     loading="lazy"
                     :data-src="story.image"
+                    :alt="story.imageCaption"
                   />
                 </div>
                 <div class="f7 black absolute lh-solid pt1">
