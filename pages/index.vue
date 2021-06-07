@@ -137,7 +137,7 @@ export default {
         subheadline: articleData.subheadline,
         author: articleData.author,
         imageCaption: articleData.featureImageDescription,
-        publishDate: articleData.publishDate,
+        date: articleData.date,
         location: articleData.location,
       },
     }

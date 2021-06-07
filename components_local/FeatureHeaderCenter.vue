@@ -26,6 +26,9 @@
         <h3 class="lh-title-1-1 normal f3-ns f5 solano-gothic">
           By {{ headerData.author }}
         </h3>
+        <h3 class="lh-title-1-1 normal f3-ns f5 solano-gothic mt">
+          {{ headerData.date }}
+        </h3>
       </div>
     </div>
   </div>
