@@ -9,7 +9,9 @@
         ${headerData.featureImage}.jpg 2200w
         `"
       :data-src="`${headerData.featureImage}@0.75x.jpg`"
+      alt="A man gets visualized by a machine, Header image"
     />
+    <!-- The header image should get a better alt but maybe it's ignorable for screen readers -->
     <div
       :class="[
         'flex absolute justify-center items-end tc z-1 w-100 h-75 top-0',
