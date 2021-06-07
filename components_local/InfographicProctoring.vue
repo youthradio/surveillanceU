@@ -51,11 +51,13 @@
       <img
         loading="lazy"
         class="lazyload center dn-ns db w-100"
+        :alt="activeTab().altText"
         :src="activeTab().images.mobile"
       />
       <img
         loading="lazy"
         class="mw-none db-ns dn w-100"
+        :alt="activeTab().altText"
         :src="activeTab().images.desktop"
       />
     </div>
