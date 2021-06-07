@@ -11,6 +11,9 @@ export default {
     base: POSTCONFIG.baseURL,
   },
   head: {
+    htmlAttrs: {
+      lang: 'en',
+    },
     title: POSTCONFIG.title,
     meta: [
       { charset: 'utf-8' },
