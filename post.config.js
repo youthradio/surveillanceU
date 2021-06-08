@@ -13,7 +13,7 @@ console.log(`CAN_URL ${CAN_URL}`)
 
 const POSTCONFIG = {
   baseURL: BASEURL,
-  title: content.headline,
+  title: `${content.headline}: ${content.subheadline}`,
   subheadline: content.subheadline,
   author: content.author,
   publishDate: content.date,
