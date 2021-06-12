@@ -24,6 +24,7 @@
             class="pa1 flex-shrink-0"
             tabindex="0"
             :aria-label="stateName"
+            :selected="selectedState === stateName"
             @click="selectedState = stateName"
             @keydown.enter="selectedState = stateName"
             @keydown.space="selectedState = stateName"

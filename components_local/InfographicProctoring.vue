@@ -2,7 +2,6 @@
   <div class="no-selection">
     <div class="db flex-ns justify-center tc">
       <div
-        role="tablist"
         aria-label="Proctoring Tools Infographic"
         class="
           flex flex-column flex-row-ns
@@ -30,8 +29,7 @@
             i % 2 == 0 ? '' : 'bt bb bt-0-ns bb-0-ns bl-ns br-ns',
             currentTab === i ? 'white bg-purple' : '',
           ]"
-          :aria-selected="currentTab === i"
-          :aria-controls="`panel-${i}`"
+          :selected="currentTab === i"
           :aria-label="tab.name"
           tabindex="0"
           @click="currentTab = i"
@@ -44,7 +42,6 @@
     </div>
     <div
       class="ba br--bottom br2-ns br2 b--purple pa3"
-      role="tabpanel"
       tabindex="0"
       :aria-labelledby="`tab-${currentTab}`"
     >
