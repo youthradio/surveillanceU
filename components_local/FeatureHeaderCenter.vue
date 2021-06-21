@@ -1,16 +1,35 @@
 <template>
   <div ref="headerImage" class="relative white">
-    <img
-      loading="lazy"
-      class="w-100 db lazyload img-fluid"
-      :data-srcset="`${headerData.featureImage}@0.5x.jpg 110w,
-        ${headerData.featureImage}@0.25x.jpg 552w,
-        ${headerData.featureImage}@0.75x.jpg 1651w,
-        ${headerData.featureImage}.jpg 2200w
+    <picture>
+      <source
+        type="image/webp"
+        :data-srcset="`compressed/${headerData.featureImage}@0.5x.webp 110w,
+        compressed/${headerData.featureImage}@0.25x.webp 552w,
+        compressed/${headerData.featureImage}@0.75x.webp 1651w,
+        compressed/${headerData.featureImage}.webp 2200w
         `"
-      :data-src="`${headerData.featureImage}@0.75x.jpg`"
-      alt="A man gets visualized by a machine, Header image"
-    />
+      />
+      <source
+        type="image/jpeg"
+        :data-srcset="`compressed/${headerData.featureImage}@0.5x.jpg 110w,
+        compressed/${headerData.featureImage}@0.25x.jpg 552w,
+        compressed/${headerData.featureImage}@0.75x.jpg 1651w,
+        compressed/${headerData.featureImage}.jpg 2200w
+        `"
+      />
+
+      <img
+        loading="lazy"
+        class="w-100 db lazyload img-fluid"
+        :data-srcset="`compressed/${headerData.featureImage}@0.5x.jpg 110w,
+        compressed/${headerData.featureImage}@0.25x.jpg 552w,
+        compressed/${headerData.featureImage}@0.75x.jpg 1651w,
+        compressed/${headerData.featureImage}.jpg 2200w
+        `"
+        :data-src="`compressed/${headerData.featureImage}@0.75x.jpg`"
+        alt="A man gets visualized by a machine, Header image"
+      />
+    </picture>
     <!-- The header image should get a better alt but maybe it's ignorable for screen readers -->
     <div
       :class="[

@@ -76,6 +76,7 @@ function markdown2html(data) {
               'ul',
               'video',
               'source',
+              'picture',
             ],
             KEEP_CONTENT: true,
           }

@@ -46,12 +46,22 @@
             >
               <div class="relative flex-basis-100">
                 <div class="img-container aspect-1">
-                  <img
-                    class="db w-100 lazyload"
-                    loading="lazy"
-                    :data-src="story.image"
-                    :alt="story.imageCaption"
-                  />
+                  <picture class="db w-100">
+                    <source
+                      type="image/webp"
+                      :data-srcset="`compressed/${story.image}.webp`"
+                    />
+                    <source
+                      type="image/jpeg"
+                      :data-srcset="`compressed/${story.image}.jpg`"
+                    />
+                    <img
+                      class="lazyload"
+                      loading="lazy"
+                      :data-src="`compressed/${story.image}.jpg`"
+                      :alt="story.imageCaption"
+                    />
+                  </picture>
                 </div>
                 <div class="f7 black absolute lh-solid pt1">
                   <p class="ma0" v-html="story.imageCaption"></p>
