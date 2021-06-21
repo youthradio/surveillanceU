@@ -7,8 +7,8 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
+    "build": "nuxt build --modern=server",
+    "start": "nuxt start --modern=server",
     "export": "nuxt generate && rm -rf _site/* && cp -R dist/ _site/",
     "publish-ghpages": "nuxt generate",
     "fetch-data": "cd scripts && node --experimental-modules --experimental-json-modules getdata.js",

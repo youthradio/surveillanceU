@@ -5,7 +5,7 @@
         :class="['db-ns ph2', verticalMode ? 'ph0-ns' : '']"
         target="_blank"
         aria-label="Share on Facebook"
-        rel="nofollow"
+        rel="noreferrer"
         :href="`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${encodeURIComponent(
           title
         )}`"
@@ -33,7 +33,7 @@
       <a
         :class="['db-ns ph2', verticalMode ? 'ph0-ns' : '']"
         target="_blank"
-        rel="nofollow"
+        rel="noreferrer"
         aria-label="Share on Twitter"
         :href="`https://twitter.com/intent/tweet?text=${encodeURIComponent(
           `${title}: ${url} ${tweetMessage}`
@@ -63,7 +63,7 @@
       </a>
       <a
         target="_blank"
-        rel="nofollow"
+        rel="noreferrer"
         aria-label="Share via Email"
         :class="['db-ns ph2', verticalMode ? 'ph0-ns' : '']"
         :href="`mailto:info@example.com?&subject=${encodeURIComponent(

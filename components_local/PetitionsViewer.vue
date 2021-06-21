@@ -42,7 +42,7 @@
       Source:
       <a
         target="_blank"
-        rel="nofollow"
+        rel="noreferrer"
         class="link purple underline underline-hover hover-dark-purple"
         href="https://www.change.org/search?q=proctoring"
         >Change.org
