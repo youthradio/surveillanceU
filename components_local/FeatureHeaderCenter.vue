@@ -3,7 +3,7 @@
     <picture>
       <source
         type="image/webp"
-        :data-srcset="`compressed/${headerData.featureImage}@0.5x.webp 110w,
+        :srcset="`compressed/${headerData.featureImage}@0.5x.webp 110w,
         compressed/${headerData.featureImage}@0.25x.webp 552w,
         compressed/${headerData.featureImage}@0.75x.webp 1651w,
         compressed/${headerData.featureImage}.webp 2200w
@@ -11,7 +11,7 @@
       />
       <source
         type="image/jpeg"
-        :data-srcset="`compressed/${headerData.featureImage}@0.5x.jpg 110w,
+        :srcset="`compressed/${headerData.featureImage}@0.5x.jpg 110w,
         compressed/${headerData.featureImage}@0.25x.jpg 552w,
         compressed/${headerData.featureImage}@0.75x.jpg 1651w,
         compressed/${headerData.featureImage}.jpg 2200w
@@ -19,14 +19,13 @@
       />
 
       <img
-        loading="lazy"
-        class="w-100 db lazyload img-fluid"
-        :data-srcset="`compressed/${headerData.featureImage}@0.5x.jpg 110w,
+        class="w-100 db img-fluid"
+        :srcset="`compressed/${headerData.featureImage}@0.5x.jpg 110w,
         compressed/${headerData.featureImage}@0.25x.jpg 552w,
         compressed/${headerData.featureImage}@0.75x.jpg 1651w,
         compressed/${headerData.featureImage}.jpg 2200w
         `"
-        :data-src="`compressed/${headerData.featureImage}@0.75x.jpg`"
+        :src="`compressed/${headerData.featureImage}@0.75x.jpg`"
         alt="A man gets visualized by a machine, Header image"
       />
     </picture>

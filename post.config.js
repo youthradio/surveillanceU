@@ -22,7 +22,6 @@ const POSTCONFIG = {
   tweetMessage: '@itsyrmedia',
   url: CAN_URL,
   featureImage: `${CAN_URL}/${content.seo_image}`,
-  featureImagePath: content.featureImage,
   featureImageDescription: content.featureImageDescription,
 
   wpPostSlug: 'north-carolina-vs-vaping-companies',
